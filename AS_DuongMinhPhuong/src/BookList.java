@@ -103,7 +103,7 @@ public class BookList {
             Scanner sc = new Scanner(new File(fname));
             while (sc.hasNextLine()) {
                 String line = sc.nextLine();
-                String[] data = line.split(" ", -3);
+                String[] data = line.split(" ");
                 String code = data[0].trim();
                 String title = data[1].trim();
                 int qua = Integer.valueOf(data[2].trim());

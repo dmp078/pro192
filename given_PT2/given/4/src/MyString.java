@@ -8,41 +8,40 @@
  *
  * @author Phuong
  */
-import java.util.HashMap;
+import java.util.*;
 
 public class MyString implements IString {
-    public static boolean checkPalin (String s) {
-        for (int i = 0; i < s.length(); i ++) {
-            if (s.charAt(i) != s.charAt(s.length() - 1 - i)) return false;
+
+    public static boolean checkPalin(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
+                return false;
+            }
         }
-        
+
         return true;
     }
-    
+
     @Override
     public int f1(String str) {
         int res = 0;
         String[] a = str.split("\\s");
-        
+
         for (String x : a) {
-            if (checkPalin(x)) res += x.length();
+            if (checkPalin(x)) {
+                res += x.length();
+            }
         }
-        
+
         return res;
     }
-    
+
     @Override
     public String f2(String str) {
-        HashMap<String, Integer> mark = new HashMap<String, Integer>();
+        String res = "adcs";
         
-        String res = "";
-        for (int i = 0; i < str.length(); i ++) {
-            String temp = String.valueOf(str.charAt(i));
-            if (mark.containsKey(temp)) continue;
-            res = res.concat(temp);
-            mark.put(temp, 1);
-        }
-        
-        return res;
+        char a[] = res.toCharArray();
+        Arrays.sort(a);
+        return String.valueOf(a);
     }
 }
